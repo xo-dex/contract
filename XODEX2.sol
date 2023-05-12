@@ -565,7 +565,7 @@ contract XODEX is Context, IERC20, Ownable {
         // Do not trigger if already in swap
         require(!isSwapping, "Currently processing, try later.");
         if (percent_Of_Tokens_To_Process > 100) {
-            percent_Of_Tokens_To_Process == 100;
+            percent_Of_Tokens_To_Process = 100;
         }
         uint256 tokensOnContract = balanceOf(address(this));
         uint256 sendTokens = (tokensOnContract * percent_Of_Tokens_To_Process) / 100;
