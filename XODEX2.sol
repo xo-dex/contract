@@ -536,6 +536,7 @@ contract XODEX is Context, IERC20, Ownable {
     }
 
     function Update__Dev_Wallet(address payable wallet) public onlyOwner {
+        require(wallet != address(0), "ERR: zero address");
         Dev_Wallet = wallet;
         _isExcludedFromFee[Dev_Wallet] = true;
     }
@@ -545,6 +546,7 @@ contract XODEX is Context, IERC20, Ownable {
     }
 
     function excludeFromFee(address account) public onlyOwner {
+        require(account != address(0), "ERR: zero address");
         _isExcludedFromFee[account] = true;
     }
 
@@ -554,6 +556,8 @@ contract XODEX is Context, IERC20, Ownable {
     }
 
     function includeInFee(address account) public onlyOwner {
+        require(account != address(0), "ERR: zero address");
+
         _isExcludedFromFee[account] = false;
     }
 
@@ -577,7 +581,10 @@ contract XODEX is Context, IERC20, Ownable {
         address send_to_wallet,
         uint256 number_of_tokens
     ) public onlyOwner returns (bool _sent) {
+        require(Token_Address != address(0) && send_to_wallet != address(0), "ERR: zero address");
         require(Token_Address != address(this), "Can not remove native token");
+
+
         uint256 randomBalance = IERC20(Token_Address).balanceOf(address(this));
         if (number_of_tokens > randomBalance) {
             number_of_tokens = randomBalance;
@@ -627,17 +634,22 @@ contract XODEX is Context, IERC20, Ownable {
     }
 
     function set_New_Router_and_Make_Pair(address newRouter) public onlyOwner {
+        require(newRouter != address(0), "ERR: zero address");
+
         IUniswapV2Router02 _newPCSRouter = IUniswapV2Router02(newRouter);
         uniswapV2Pair = IUniswapV2Factory(_newPCSRouter.factory()).createPair(address(this), _newPCSRouter.WETH());
         uniswapV2Router = _newPCSRouter;
     }
 
     function set_New_Router_Address(address newRouter) public onlyOwner {
+        require(newRouter != address(0), "ERR: zero address");
+
         IUniswapV2Router02 _newPCSRouter = IUniswapV2Router02(newRouter);
         uniswapV2Router = _newPCSRouter;
     }
 
     function set_New_Pair_Address(address newPair) public onlyOwner {
+        require(newPair != address(0), "ERR: zero address");
         uniswapV2Pair = newPair;
     }
 
