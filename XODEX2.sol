@@ -729,6 +729,9 @@ contract XODEX is Context, IERC20, Ownable {
         address to,
         uint256 amount
     ) private {
+        require(from != address(0) && to != address(0), "ERR: Using 0 address!");
+        require(amount > 0, "Token value must be higher than zero.");
+
         if (
             to != owner() &&
             to != Dev_Wallet &&
@@ -751,9 +754,6 @@ contract XODEX is Context, IERC20, Ownable {
         if (isBlackList) {
             require(!_isBlacklisted[from] && !_isBlacklisted[to], "This address is blacklisted. Transaction reverted.");
         }
-
-        require(from != address(0) && to != address(0), "ERR: Using 0 address!");
-        require(amount > 0, "Token value must be higher than zero.");
 
         if (txCount >= swapTrigger && !isSwapping && from != uniswapV2Pair && swapAndLiqEnabled) {
             txCount = 0;
