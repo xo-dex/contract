@@ -636,6 +636,8 @@ contract XODEX is Context, IERC20, Ownable {
     }
 
     function set_Number_Of_Transactions_Before_Liquify_Trigger(uint8 number_of_transactions) public onlyOwner {
+        require(number_of_transactions > 0, "Minimum must be greater than 0");
+
         swapTrigger = number_of_transactions;
     }
 
@@ -644,6 +646,7 @@ contract XODEX is Context, IERC20, Ownable {
     }
 
     function set_Max_TX_Percent(uint256 maxTxPercent_x100) external onlyOwner {
+        require(maxTxPercent_x100 > 0, "Minimum must be greater than 0");
         _maxTxAmount = (_tTotal * maxTxPercent_x100) / 10000;
     }
 

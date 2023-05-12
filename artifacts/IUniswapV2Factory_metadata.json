@@ -197,11 +197,11 @@
 	},
 	"sources": {
 		"XODEX2.sol": {
-			"keccak256": "0xb24118b71d7b69784a03eba5be1810a45a80d13c93bfce913e90789e45974408",
+			"keccak256": "0x94c396cbea19ba375da2293a7c1edabafc0f28b3075565ad96bf594d3a283d68",
 			"license": "Unlicensed",
 			"urls": [
-				"bzz-raw://de84cd1e54eec860bc6e50b58eb56157878ac4d08a31995abb19bb049187b540",
-				"dweb:/ipfs/QmT43cE8R2ZJw85cQpzxk6q9Z2nEg9fmUn2CidezLCQJSx"
+				"bzz-raw://b03062bd18d631d7651344d0b290fd295a0d0f789ca4f3d22f2a5db5271f74fa",
+				"dweb:/ipfs/QmUuWXjBqBYSNJU8837hcPLSqP2XBHeedeCwVpuBUvZdXA"
 			]
 		}
 	},
