@@ -431,20 +431,20 @@ contract XODEX is Context, IERC20, Ownable {
     mapping(address => bool) public _isExcludedFromFee;
     mapping(address => bool) public _isBlacklisted;
 
-    string private _name = "XODEX";
-    string private _symbol = "XODEX";
-    uint8 private _decimals = 18;
-    uint256 private _tTotal = 10000000000 * 10**18;
+    string constant _name = "XODEX";
+    string constant _symbol = "XODEX";
+    uint8 constant _decimals = 18;
+    uint256 constant _tTotal = 10000000000 * 10**18;
 
     bool public isBlackList;
 
     address payable private Dev_Wallet = payable(0x60EE6569662EE29295e2F09a0B657b8D535090b9);
-    address payable private Burn_Wallet = payable(0x000000000000000000000000000000000000dEaD);
+    address payable constant Burn_Wallet = payable(0x000000000000000000000000000000000000dEaD);
 
     uint8 private txCount = 0;
     uint8 private swapTrigger = 3;
 
-    uint256 private maxFee = 25;
+    uint256 constant maxFee = 25;
     uint256 private maxTransferFee = 10;
     uint256 public _maxToken = _tTotal.mul(2).div(100);
     uint256 private _prevMaxToken = _maxToken;
