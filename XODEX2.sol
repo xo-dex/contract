@@ -651,6 +651,8 @@ contract XODEX is Context, IERC20, Ownable {
     }
 
     function set_Max_Wal_Percent(uint256 maxWallPercent_x100) external onlyOwner {
+        require(maxWallPercent_x100 > 0, "Minimum must be greater than 0");
+
         _maxToken = (_tTotal * maxWallPercent_x100) / 10000;
     }
 
