@@ -626,26 +626,6 @@ contract XODEX is Context, IERC20, Ownable {
         );
     }
 
-    function set_New_Router_and_Make_Pair(address newRouter) public onlyOwner {
-        require(newRouter != address(0), "ERR: zero address");
-
-        IUniswapV2Router02 _newPCSRouter = IUniswapV2Router02(newRouter);
-        uniswapV2Pair = IUniswapV2Factory(_newPCSRouter.factory()).createPair(address(this), _newPCSRouter.WETH());
-        uniswapV2Router = _newPCSRouter;
-    }
-
-    function set_New_Router_Address(address newRouter) public onlyOwner {
-        require(newRouter != address(0), "ERR: zero address");
-
-        IUniswapV2Router02 _newPCSRouter = IUniswapV2Router02(newRouter);
-        uniswapV2Router = _newPCSRouter;
-    }
-
-    function set_New_Pair_Address(address newPair) public onlyOwner {
-        require(newPair != address(0), "ERR: zero address");
-        uniswapV2Pair = newPair;
-    }
-
     function symbol() public view returns (string memory) {
         return _symbol;
     }
