@@ -451,13 +451,11 @@ contract XODEX is Context, IERC20, Ownable {
     uint256 public _maxTxAmount = _tTotal.mul(1).div(100);
     uint256 private _prevMaxTxAmount = _maxTxAmount;
 
-    uint256 public _TotalFee = 10;
+    uint256 public _TransferFee = 10;
     uint256 public _buyFee = 5;
     uint256 public _sellFee = 5;
+    uint256 public _TotalFee = _TransferFee;
 
-    uint256 private _prevTotalFee = _TotalFee;
-    uint256 private _prevBuyFee = _buyFee;
-    uint256 private _prevSellFee = _sellFee;
 
     bool public noTransferFee = true;
 
@@ -593,20 +591,15 @@ contract XODEX is Context, IERC20, Ownable {
     }
 
     function removeFees() private {
-        if (_TotalFee == 0 && _buyFee == 0 && _sellFee == 0) return;
+        if (_TotalFee == 0) return;
 
-        _prevBuyFee = _buyFee;
-        _prevSellFee = _sellFee;
-        _prevTotalFee = _TotalFee;
-        _buyFee = 0;
-        _sellFee = 0;
         _TotalFee = 0;
     }
 
     function restoreFees() private {
-        _TotalFee = _prevTotalFee;
-        _buyFee = _prevBuyFee;
-        _sellFee = _prevSellFee;
+        if (_TotalFee == _TransferFee) return;
+
+        _TotalFee = _TransferFee;
     }
 
     function sendToWallet(address payable wallet, uint256 amount) private {
@@ -798,7 +791,7 @@ contract XODEX is Context, IERC20, Ownable {
         }
         _transferTokens(sender, recipient, amount);
 
-        if (!takeFee) restoreFees();
+        restoreFees();
     }
 
     function _transferTokens(
@@ -827,7 +820,7 @@ contract XODEX is Context, IERC20, Ownable {
 
     function _set_Transfer_Fee(uint256 Transfer_Fee) external onlyOwner {
         require(Transfer_Fee <= maxTransferFee, "Fee is too high!");
-        _TotalFee = Transfer_Fee;
+        _TransferFee = Transfer_Fee;
     }
 }
 // SPDX-License-Identifier: Unlicensed

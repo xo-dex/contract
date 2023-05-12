@@ -985,11 +985,11 @@
 	},
 	"sources": {
 		"XODEX2.sol": {
-			"keccak256": "0x4d058e47db4ebe39c5f5104f4cfa3972f030add2be50ca84fbd41c03a9195dc2",
+			"keccak256": "0xb24118b71d7b69784a03eba5be1810a45a80d13c93bfce913e90789e45974408",
 			"license": "Unlicensed",
 			"urls": [
-				"bzz-raw://d24b49d50805058a7d02dc9e5d807b13ca1b32102279a6be2ce6805a001b7a03",
-				"dweb:/ipfs/QmTprfBb1BomoJ3rrtf3s7sZZ9ZrQr7J8tyCS8qEKzJSRY"
+				"bzz-raw://de84cd1e54eec860bc6e50b58eb56157878ac4d08a31995abb19bb049187b540",
+				"dweb:/ipfs/QmT43cE8R2ZJw85cQpzxk6q9Z2nEg9fmUn2CidezLCQJSx"
 			]
 		}
 	},
