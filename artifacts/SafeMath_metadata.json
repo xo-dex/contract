@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.18+commit.87f61d96"
+		"version": "0.8.17+commit.8df45f5f"
 	},
 	"language": "Solidity",
 	"output": {
@@ -18,9 +18,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"XODEX2.sol": "SafeMath"
+			"TEST.sol": "SafeMath"
 		},
-		"evmVersion": "paris",
+		"evmVersion": "london",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -32,12 +32,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"XODEX2.sol": {
-			"keccak256": "0x94c396cbea19ba375da2293a7c1edabafc0f28b3075565ad96bf594d3a283d68",
+		"TEST.sol": {
+			"keccak256": "0x6db77157f9c9c61019dec043ed685dd0142b9f5d3d6a881b8940d8646594b105",
 			"license": "Unlicensed",
 			"urls": [
-				"bzz-raw://b03062bd18d631d7651344d0b290fd295a0d0f789ca4f3d22f2a5db5271f74fa",
-				"dweb:/ipfs/QmUuWXjBqBYSNJU8837hcPLSqP2XBHeedeCwVpuBUvZdXA"
+				"bzz-raw://5956c321c3675a9b4eddfa8bdc8d245cca053eb741debb04b9ab1f87b094692a",
+				"dweb:/ipfs/QmQ4JgCbwufjLs6AxibJ4fb4B6g4YRdPPKbpBuXsecTZk8"
 			]
 		}
 	},

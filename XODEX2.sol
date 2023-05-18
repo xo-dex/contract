@@ -1,5 +1,22 @@
 // SPDX Licence: Unlicenced
 
+/*
+ █████ █████    ███████    ██████████   ██████████ █████ █████
+░░███ ░░███   ███░░░░░███ ░░███░░░░███ ░░███░░░░░█░░███ ░░███
+ ░░███ ███   ███     ░░███ ░███   ░░███ ░███  █ ░  ░░███ ███
+  ░░█████   ░███      ░███ ░███    ░███ ░██████     ░░█████
+   ███░███  ░███      ░███ ░███    ░███ ░███░░█      ███░███
+  ███ ░░███ ░░███     ███  ░███    ███  ░███ ░   █  ███ ░░███
+ █████ █████ ░░░███████░   ██████████   ██████████ █████ █████
+░░░░░ ░░░░░    ░░░░░░░    ░░░░░░░░░░   ░░░░░░░░░░ ░░░░░ ░░░░░
+
+Website: https://www.xo-dex.com
+Telegram: https://t.me/xodexofficialtg
+Twitter: https://twitter.com/XODEXnetwork
+Coin Market Cap: https://coinmarketcap.com/currencies/xodex/
+
+*/
+
 pragma solidity ^0.8.7;
 
 interface IERC20 {
@@ -81,7 +98,7 @@ abstract contract Ownable is Context {
     event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
 
     constructor() {
-        _owner = 0xc402FE06948516567f2E59AB88172FEE49F5a84c;
+        _owner = 0x37968C57938E60383D722d7951F6f8d0f0563c3B;
         emit OwnershipTransferred(address(0), _owner);
     }
 
@@ -438,11 +455,11 @@ contract XODEX is Context, IERC20, Ownable {
 
     bool public isBlackList;
 
-    address payable private Dev_Wallet = payable(0x60EE6569662EE29295e2F09a0B657b8D535090b9);
+    address payable private Dev_Wallet = payable(0x8e0bFdef94F09b5108b86a737Bf97e9D5A3F5503);
     address payable constant Burn_Wallet = payable(0x000000000000000000000000000000000000dEaD);
 
     uint8 private txCount = 0;
-    uint8 private swapTrigger = 3;
+    uint8 private swapTrigger = 10;
 
     uint256 constant maxFee = 25;
     uint256 private maxTransferFee = 10;
@@ -452,8 +469,8 @@ contract XODEX is Context, IERC20, Ownable {
     uint256 private _prevMaxTxAmount = _maxTxAmount;
 
     uint256 public _TransferFee = 10;
-    uint256 public _buyFee = 5;
-    uint256 public _sellFee = 5;
+    uint256 public _buyFee = 10;
+    uint256 public _sellFee = 10;
     uint256 public _TotalFee = _TransferFee;
 
 
